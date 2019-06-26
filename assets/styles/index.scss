@@ -1,1 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  > h1 {
+    font-family: fantasy;
+    text-align: center;
+  }
+}
+.game-board {
+  width: 100%;
+  td {
+    align-content: center;
+    color: #0ff;
+  }
+}
