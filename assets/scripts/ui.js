@@ -16,6 +16,10 @@ const failureMessage = message => {
   // Clear getFormFields
   $('form').trigger('reset')
 }
+const indexGamesSuccess = function (data) {
+  console.log('indexGamesSuccess!', data)
+  $('#games-display').html('')
+}
 
 const signUpSuccess = responseData => {
   successMessage('You signed up successfully!')
@@ -43,6 +47,18 @@ const changePasswordSuccess = responseData => {
 const changePasswordFailure = responseData => {
   failureMessage('Password not changed!')
 }
+const createGameSuccess = data => {
+  successMessage('New Game!')
+  $('#games-display').html('')
+
+  console.log(data.game.cells)
+  store.gameElements = data.game.cells
+  store.player_x = data.game.player_x
+
+}
+const createGameFailure = data => {
+  successMessage('Error! New game not made!')
+}
 
 module.exports = {
   signUpSuccess,
@@ -52,5 +68,8 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  createGameSuccess,
+  createGameFailure,
+  indexGamesSuccess
 }

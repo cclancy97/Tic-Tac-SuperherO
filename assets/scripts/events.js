@@ -3,6 +3,13 @@
 const api = require('./api')
 const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
+const store = require('./store')
+
+const onGetGames = function (event) {
+  api.indexGames()
+    .then(ui.indexGamesSuccess) // do something on success
+    .catch(console.log) // catch failures
+}
 
 const onSignUp = event => {
   event.preventDefault()
@@ -36,9 +43,31 @@ const onChangePassword = event => {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+const onCreateGame = event => {
+  event.preventDefault()
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+  onClickBoard()
+}
+const onClickBoard = event => {
+  const game = store.gameElements
+  const click = $(this).attr('data-id')
+
+  // game.forEach(function (part, index, game) {
+  // const term = $(index).attr('data-id')
+  // console.log(term)
+  // game[index] = 'X'
+  // $('td').append(`${game}`)
+  // $('td').append(`${game[index]}`)
+  console.log(game)
+}
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onCreateGame,
+  onGetGames,
+  onClickBoard
 }

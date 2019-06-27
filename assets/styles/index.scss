@@ -2,14 +2,30 @@
 
 body {
   > h1 {
-    font-family: fantasy;
+    font-family: serif;
     text-align: center;
   }
 }
-.game-board {
-  width: 100%;
-  td {
-    align-content: center;
-    color: #0ff;
-  }
+
+td {
+  width: 200px;
+  height: 200px;
+}
+
+table {
+  margin: 5px auto;
+}
+
+td:hover {
+  background-color: rgba(#b81313,.4)
+}
+
+.vert {
+  border-left: 2px solid #f40000;
+  border-right: 2px solid #f40000;
+}
+
+.hori {
+  border-top: 2px solid #f40000;
+  border-bottom: 2px solid #f40000;
 }

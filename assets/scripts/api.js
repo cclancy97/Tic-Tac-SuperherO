@@ -3,10 +3,24 @@
 const config = require('./config')
 const store = require('./store')
 
-const getGames = () => {
+const indexGames = function () {
+  // make GET request to /books
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createGame = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 const signUp = formData => {
@@ -44,9 +58,10 @@ const signOut = () => {
 }
 
 module.exports = {
-  getGames,
+  createGame,
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  indexGames
 }
