@@ -10,6 +10,8 @@ body {
 td {
   width: 200px;
   height: 200px;
+  text-align: center;
+  text-transform: full-width;
 }
 
 table {
@@ -23,9 +25,12 @@ td:hover {
 .vert {
   border-left: 2px solid #f40000;
   border-right: 2px solid #f40000;
+  border-width: 10px;
+
 }
 
 .hori {
   border-top: 2px solid #f40000;
   border-bottom: 2px solid #f40000;
+  border-width: 10px;
 }

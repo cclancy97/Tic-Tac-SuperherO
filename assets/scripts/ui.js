@@ -50,11 +50,8 @@ const changePasswordFailure = responseData => {
 const createGameSuccess = data => {
   successMessage('New Game!')
   $('#games-display').html('')
-
-  console.log(data.game.cells)
   store.gameElements = data.game.cells
-  store.player_x = data.game.player_x
-
+  console.console.log(data)
 }
 const createGameFailure = data => {
   successMessage('Error! New game not made!')

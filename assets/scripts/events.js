@@ -48,13 +48,16 @@ const onCreateGame = event => {
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
-  onClickBoard()
 }
 const onClickBoard = event => {
   const game = store.gameElements
-  const click = $(this).attr('data-id')
+  const cellValue = $(event.target).text('X')
 
-  // game.forEach(function (part, index, game) {
+  // const index = $(event.target).data('id')
+  console.log(cellValue)
+
+  // const click = $(this).attr('data-id')
+
   // const term = $(index).attr('data-id')
   // console.log(term)
   // game[index] = 'X'
