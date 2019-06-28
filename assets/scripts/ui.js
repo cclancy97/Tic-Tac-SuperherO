@@ -61,7 +61,7 @@ const createGameFailure = data => {
   successMessage('Error! New game not made!')
 }
 const updateSuccess = data => {
-  console.log(data.game)
+  console.log(data)
 }
 const updateFailure = data => {}
 module.exports = {

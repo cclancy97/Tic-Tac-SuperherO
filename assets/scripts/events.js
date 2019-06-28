@@ -54,7 +54,7 @@ const onClickBoard = event => {
   const cellValue = $(event.target).text('X')
 
   // const index = $(event.target).data('id')
-  console.log(game)
+  // console.log(game)
 
   // const click = $(this).attr('data-id')
 
@@ -63,37 +63,37 @@ const onClickBoard = event => {
   // game[index] = 'X'
   // $('td').append(`${game}`)
   // $('td').append(`${game[index]}`)
-  console.log(game)
+  // console.log(game)
 }
 const onUpdateGame = event => {
   event.preventDefault()
   const target = event.target
-
+  const targetIndex = $(target).data('id')
+  let targetValue = $(target).text()
   const move = {
     game: {
       cell: {
-        index: $(target).data('id'),
-        value: $(target).text()
+        index: targetIndex,
+        value: targetValue
       },
       over: false
     }
   }
-  console.log(move)
+
+  if (targetValue === '') {
+    targetValue = $(target).text('X')
+    move.game.cell.value = 'X'
+  } else if (targetValue === 'X') {
+    targetValue = $(target).text('O')
+    move.game.cell.value = 'O'
+  }
+  console.log(move.game.cell.value)
+  store.move = move
   api.updateGame(move)
     .then(ui.updateSuccess)
     .catch(ui.updateFailure)
 }
 
-/*
-// checks for empty boxes
-let player = 'X'
-const onPlay = event => {
-  // event.preventDefault()
-  // const form = event.target
-  // const formData = getFormFields(form)
-  }
-}
-*/
 module.exports = {
   onSignUp,
   onSignIn,
@@ -104,7 +104,7 @@ module.exports = {
   onClickBoard,
   onUpdateGame
 }
-/*if ($(event.target).text() === '') {
+/* if ($(event.target).text() === '') {
   // api.onUpdateGame(formData)
   $(event.target).html(player)
   const index = $(event.target).data('id')
@@ -118,4 +118,4 @@ module.exports = {
     player = 'X'
   }
 }
-}*/
+} */
