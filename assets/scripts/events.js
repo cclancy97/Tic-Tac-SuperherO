@@ -5,7 +5,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 const store = require('./store')
 
-const onGetGames = function (event) {
+const onGetGames = function(event) {
   api.indexGames()
     .then(ui.indexGamesSuccess) // do something on success
     .catch(console.log) // catch failures
@@ -50,11 +50,11 @@ const onCreateGame = event => {
     .catch(ui.createGameFailure)
 }
 const onClickBoard = event => {
-  const game = store.gameElements
+
   const cellValue = $(event.target).text('X')
 
   // const index = $(event.target).data('id')
-  console.log(cellValue)
+  console.log(game)
 
   // const click = $(this).attr('data-id')
 
@@ -65,6 +65,35 @@ const onClickBoard = event => {
   // $('td').append(`${game[index]}`)
   console.log(game)
 }
+const onUpdateGame = event => {
+  event.preventDefault()
+  const target = event.target
+
+  const move = {
+    game: {
+      cell: {
+        index: $(target).data('id'),
+        value: $(target).text()
+      },
+      over: false
+    }
+  }
+  console.log(move)
+  api.updateGame(move)
+    .then(ui.updateSuccess)
+    .catch(ui.updateFailure)
+}
+
+/*
+// checks for empty boxes
+let player = 'X'
+const onPlay = event => {
+  // event.preventDefault()
+  // const form = event.target
+  // const formData = getFormFields(form)
+  }
+}
+*/
 module.exports = {
   onSignUp,
   onSignIn,
@@ -72,5 +101,21 @@ module.exports = {
   onChangePassword,
   onCreateGame,
   onGetGames,
-  onClickBoard
+  onClickBoard,
+  onUpdateGame
 }
+/*if ($(event.target).text() === '') {
+  // api.onUpdateGame(formData)
+  $(event.target).html(player)
+  const index = $(event.target).data('id')
+
+  api.updateGame(index, player)
+  .then(ui.onUpdateSuccess)
+  .catch(ui.onUpdateFailure)
+  if (player === 'X') {
+    player = 'O'
+  } else {
+    player = 'X'
+  }
+}
+}*/

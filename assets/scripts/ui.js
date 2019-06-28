@@ -49,14 +49,21 @@ const changePasswordFailure = responseData => {
 }
 const createGameSuccess = data => {
   successMessage('New Game!')
-  $('#games-display').html('')
-  store.gameElements = data.game.cells
+  $('td').html('')
+  store.gameObj = data.game
+  store.cells = store.gameObj.cells
+  store.gameID = store.gameObj.id
+  console.log(store.gameID)
+  console.log(store.gameObj)
   console.console.log(data)
 }
 const createGameFailure = data => {
   successMessage('Error! New game not made!')
 }
-
+const updateSuccess = data => {
+  console.log(data.game)
+}
+const updateFailure = data => {}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -68,5 +75,7 @@ module.exports = {
   changePasswordFailure,
   createGameSuccess,
   createGameFailure,
-  indexGamesSuccess
+  indexGamesSuccess,
+  updateSuccess,
+  updateFailure
 }
