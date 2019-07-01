@@ -1,6 +1,12 @@
 'use strict'
 
 const store = require('./store')
+const hideMessaging = function () {
+  $('#message').show()
+  setTimeout(function () {
+    $('#message').hide()
+  }, 5000)
+}
 
 const successMessage = message => {
   $('#message').text(message)
@@ -29,6 +35,12 @@ const signUpFailure = responseData => {
 }
 const signInSuccess = responseData => {
   successMessage('You signed in successfully!')
+  $('.container').show()
+  $('#change-password').show()
+  $('#buttons').show()
+  $('#sign-out').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   // stores user information in user object for later use
   store.user = responseData.user
 }
@@ -50,18 +62,15 @@ const changePasswordFailure = responseData => {
 const createGameSuccess = data => {
   successMessage('New Game!')
   store.currentPlayer = 'X'
-  $('td').html('')
   store.gameObj = data.game
   store.cells = store.gameObj.cells
   store.gameID = store.gameObj.id
-  console.log(store.gameObj)
 }
 const createGameFailure = data => {
   failureMessage('Error! New game not made!')
 }
 const updateSuccess = (space, value) => {
   $(space).text(value)
-  console.log(store.cells)
 }
 const updateFailure = data => {
   failureMessage('Invalid Move!', data)
@@ -79,5 +88,6 @@ module.exports = {
   createGameFailure,
   indexGamesSuccess,
   updateSuccess,
-  updateFailure
+  updateFailure,
+  hideMessaging
 }

@@ -1,42 +1,68 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  > h1 {
-    font-family: serif;
+  font-family: 'Sigmar One', cursive;
+  color: #ff4e4e;
+  > header {
     text-align: center;
+    font-size: 6vw;
   }
-  background-color: rgba(#c33e3e,.65);
-}
-td {
-  width: 200px;
-  height: 200px;
-  text-align: center;
-  text-transform: full-width;
+  background-color: #5e0000;
 }
 
-table {
-  margin: 5px auto;
+.btn-primary {
+  background-color: #ff0003;
+  border-color: #ff0003;
+}
+.failure {
+  color: red;
+}
+.success {
+  color: green;
 }
 
-td:hover {
-  background-color: rgba(#b81313,.4)
+.gamearea {
+  margin: auto;
+  max-height: calc(100vh - 75px);
+  max-width: calc(100vh - 75px);
 }
 
-.vert {
-  border-left: 2px solid #f40000;
-  border-right: 2px solid #f40000;
-  border-width: 10px;
+.gameboard {
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+
+  > .gamebox {
+    align-items: center;
+    background-color: rgba(#fa0000,.35);
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, .25);
+    display: flex;
+    font-size: 12vh;
+    justify-content: center;
+    min-height: calc(100% / 3);
+
+    &:nth-child(3n) {
+      border-right: 0;
+    }
+
+    &:nth-last-child(-1n + 3) {
+      border-bottom: 0;
+    }
+
+  }
+  .gamebox:hover {
+    background-color:#b35c99;
+  }
 
 }
-
-.hori {
-  border-top: 2px solid #f40000;
-  border-bottom: 2px solid #f40000;
-  border-width: 10px;
+.stats {
+  border: 2px solid black;
+  display: flex;
+  justify-content: flex-start;
 }
-.btn {
-  background-color: #f40000;
-}
-.btn:hover {
-  background-color: rgba(#571212,.92)
+.container {
+  justify-content: center;
 }

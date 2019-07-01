@@ -77,7 +77,7 @@ const checkWin = () => {
     store.over = true
     oCounter++
   } else if (store.cells[3] === 'O' && store.cells[4] === 'O' &&
-  store.cells[5] === 'X') {
+  store.cells[5] === 'O') {
     $('#message').text(store.previousPlayer + ' Wins!')
     store.over = true
     oCounter++
@@ -116,12 +116,13 @@ const checkWin = () => {
 }
 const checkStats = () => {
   if (store.over) {
-    $('#game-over').text('Game Over!')
+    $('#game-over').html('Game Over!')
+    $('#game-over').html(' ')
     $('#score').html('X : ' + xCounter + '<br>' + 'O : ' + oCounter)
   }
 }
 const resetBoard = () => {
-  $('td').html('')
+  $('.col-4').html('')
   $('#game-over').html('')
 }
 

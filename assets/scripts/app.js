@@ -7,6 +7,10 @@
 const events = require('./events')
 $(() => {
   // $( handler )
+  $('.container').hide()
+  $('#buttons').hide()
+  $('#sign-out').hide()
+  $('#change-password').hide()
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#sign-out').on('submit', events.onSignOut)
