@@ -13,24 +13,27 @@
     </head>
     <body>
       <h1>Tic-Tac-SuperherO</h1>
-
+<div class='container-fluid'>
 <h3 id='message'></h3>
+<h3 id='game-over'></h3>
+<h3 id='score'></h3>
       <h2>Sign Up</h2>
     <form id='sign-up'>
   <input name="credentials[email]" type="email" placeholder="email">
   <input name="credentials[password]" type="password" placeholder="password">
   <input name="credentials[password_confirmation]" type="password"
   placeholder="password confirmation">
-  <button>Sign Up</button>
 </form>
+<button class="btn btn-primary">Sign Up</button>
 <h2>Sign In</h2>
 <form id='sign-in'>
 <input name="credentials[email]" type="email" placeholder="email">
 <input name="credentials[password]" type="password" placeholder="password">
-<button>Sign In</button>
+<br>
+<button class="btn btn-primary">Sign In</button>
 </form>
 <form id="sign-out">
-          <button>Sign out</button>
+          <button class="btn btn-primary">Sign out</button>
         </form>
 
         <h2>Change Password</h2>
@@ -39,13 +42,15 @@
           placeholder="Old Password">
           <input type="password" name="passwords[new]"
           placeholder="New Password">
-          <button>Change Password</button>
+          <br>
+          <button class="btn btn-primary">Change Password</button>
         </form>
         <br>
-        <button id="create-game">New Game</button>
-        <main>
-<button id="index-games">Get All Games</button>
-          <table>
+        <button class="btn btn-primary" id="create-game">New Game</button>
+<button class="btn btn-primary" id="index-games">Get All Games</button>
+</div>
+<main>
+  <table>
   <tr>
     <td data-id='0'>''</td>
     <td data-id='1' class="vert">''</td>

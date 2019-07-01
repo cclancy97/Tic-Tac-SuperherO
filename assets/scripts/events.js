@@ -4,8 +4,9 @@ const api = require('./api')
 const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 const store = require('./store')
+const logic = require('./game/logic')
 
-const onGetGames = function(event) {
+const onGetGames = function (event) {
   api.indexGames()
     .then(ui.indexGamesSuccess) // do something on success
     .catch(console.log) // catch failures
@@ -46,54 +47,14 @@ const onChangePassword = event => {
 const onCreateGame = event => {
   event.preventDefault()
   api.createGame()
-    .then(ui.createGameSuccess)
+    .then(ui.createGameSuccess, store.over = false)
     .catch(ui.createGameFailure)
-}
-const onClickBoard = event => {
-
-  const cellValue = $(event.target).text('X')
-
-  // const index = $(event.target).data('id')
-  // console.log(game)
-
-  // const click = $(this).attr('data-id')
-
-  // const term = $(index).attr('data-id')
-  // console.log(term)
-  // game[index] = 'X'
-  // $('td').append(`${game}`)
-  // $('td').append(`${game[index]}`)
-  // console.log(game)
+  logic.resetBoard()
 }
 const onUpdateGame = event => {
   event.preventDefault()
-  const target = event.target
-  const targetIndex = $(target).data('id')
-  let targetValue = $(target).text()
-  const move = {
-    game: {
-      cell: {
-        index: targetIndex,
-        value: targetValue
-      },
-      over: false
-    }
-  }
-
-  if (targetValue === '') {
-    targetValue = $(target).text('X')
-    move.game.cell.value = 'X'
-  } else if (targetValue === 'X') {
-    targetValue = $(target).text('O')
-    move.game.cell.value = 'O'
-  }
-  console.log(move.game.cell.value)
-  store.move = move
-  api.updateGame(move)
-    .then(ui.updateSuccess)
-    .catch(ui.updateFailure)
+  logic.makeMove(event)
 }
-
 module.exports = {
   onSignUp,
   onSignIn,
@@ -101,21 +62,5 @@ module.exports = {
   onChangePassword,
   onCreateGame,
   onGetGames,
-  onClickBoard,
   onUpdateGame
 }
-/* if ($(event.target).text() === '') {
-  // api.onUpdateGame(formData)
-  $(event.target).html(player)
-  const index = $(event.target).data('id')
-
-  api.updateGame(index, player)
-  .then(ui.onUpdateSuccess)
-  .catch(ui.onUpdateFailure)
-  if (player === 'X') {
-    player = 'O'
-  } else {
-    player = 'X'
-  }
-}
-} */

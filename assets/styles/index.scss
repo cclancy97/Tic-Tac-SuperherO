@@ -5,8 +5,8 @@ body {
     font-family: serif;
     text-align: center;
   }
+  background-color: rgba(#c33e3e,.65);
 }
-
 td {
   width: 200px;
   height: 200px;
@@ -33,4 +33,10 @@ td:hover {
   border-top: 2px solid #f40000;
   border-bottom: 2px solid #f40000;
   border-width: 10px;
+}
+.btn {
+  background-color: #f40000;
+}
+.btn:hover {
+  background-color: rgba(#571212,.92)
 }

@@ -23,13 +23,21 @@ const createGame = () => {
     }
   })
 }
-const updateGame = (data) => {
+const updateGame = (index, value) => {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.gameID,
     method: 'PATCH',
-    data,
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: value
+        },
+        over: store.over
+      }
     }
   })
 }
@@ -48,6 +56,7 @@ const signIn = formData => {
     method: 'POST'
   })
 }
+
 const changePassword = formData => {
   return $.ajax({
     url: config.apiUrl + '/change-password',
