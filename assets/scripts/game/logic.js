@@ -23,7 +23,6 @@ const makeMove = (event) => {
         .then(ui.updateSuccess(event.target, store.previousPlayer))
         .catch(ui.updateFailure)
       store.cells[id] = store.previousPlayer
-      console.log(store.cells[id])
       checkWin()
     }
   }
@@ -111,6 +110,8 @@ const checkWin = () => {
     $('#message').text(store.previousPlayer + ' Wins!')
     store.over = true
     oCounter++
+  } else if (store.over) {
+    $('#message').text('Draw!')
   }
   checkStats()
 }

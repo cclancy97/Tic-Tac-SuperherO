@@ -3,20 +3,34 @@
 body {
   font-family: 'Sigmar One', cursive;
   color: #ff4e4e;
+  text-align: center;
+
   > header {
-    text-align: center;
     font-size: 6vw;
+    height: 2vh;
+    text-align: center;
   }
   background-color: #5e0000;
+}
+
+input:hover {
+  background-color: rgba(#f90000,.29);
 }
 
 .btn-primary {
   background-color: #ff0003;
   border-color: #ff0003;
 }
+
+.btn-primary:hover {
+  background-color: rgba(#ff0003,.5);
+  border-color: rgba(#ff0003,.5);
+}
+
 .failure {
   color: red;
 }
+
 .success {
   color: green;
 }
@@ -25,7 +39,7 @@ body {
   margin: auto;
   max-height: calc(100vh - 75px);
   max-width: calc(100vh - 75px);
-}
+  }
 
 .gameboard {
   background-size: cover;
@@ -51,18 +65,25 @@ body {
     &:nth-last-child(-1n + 3) {
       border-bottom: 0;
     }
-
   }
+
   .gamebox:hover {
-    background-color:#b35c99;
+    background-color: #b35c99;
   }
+}
 
-}
 .stats {
-  border: 2px solid black;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  margin-top: 5px;
+  min-height: 8vh;
+  background-color: rgba(33, 33, 33, .3);
 }
+
 .container {
   justify-content: center;
 }

@@ -9,7 +9,7 @@ const logic = require('./game/logic')
 const onGetGames = function (event) {
   api.indexGames()
     .then(ui.indexGamesSuccess) // do something on success
-    .catch(console.log) // catch failures
+    .catch(ui.indexGamesFailure) // catch failures
 }
 
 const onSignUp = event => {
@@ -28,7 +28,7 @@ const onSignIn = event => {
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  ui.hideMessaging()
+  api.createGame()
 }
 const onSignOut = event => {
   event.preventDefault()

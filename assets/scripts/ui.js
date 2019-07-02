@@ -2,9 +2,8 @@
 
 const store = require('./store')
 const hideMessaging = function () {
-  $('#message').show()
   setTimeout(function () {
-    $('#message').hide()
+    $('#message').html('')
   }, 5000)
 }
 
@@ -23,8 +22,11 @@ const failureMessage = message => {
   $('form').trigger('reset')
 }
 const indexGamesSuccess = function (data) {
-  console.log('indexGamesSuccess!', data)
-  $('#games-display').html('')
+  successMessage('indexGamesSuccess!', data)
+  $('#games-display').html(data)
+}
+const indexGamesFailure = function (data) {
+  successMessage('indexGames Failure!', data)
 }
 
 const signUpSuccess = responseData => {
@@ -89,5 +91,6 @@ module.exports = {
   indexGamesSuccess,
   updateSuccess,
   updateFailure,
-  hideMessaging
+  hideMessaging,
+  indexGamesFailure
 }
