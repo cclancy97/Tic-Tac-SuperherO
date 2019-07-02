@@ -1,7 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
-
+html {
+background-image: url('assets/styles/background.jpg');
+}
 body {
-  background-image: url('assets/styles/background.jpg');
   background-size: cover;
   background-position: center;
   font-family: 'Sigmar One', cursive;
