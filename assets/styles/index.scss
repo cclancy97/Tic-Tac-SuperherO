@@ -1,16 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
+  background: url('assets/styles/background.jpg');
+  background-size: cover;
+  background-position: center;
   font-family: 'Sigmar One', cursive;
   color: #ff4e4e;
   text-align: center;
+  min-height: 1vh;
 
   > header {
     font-size: 6vw;
     height: 2vh;
     text-align: center;
   }
-  background-color: #5e0000;
+}
+#message {
+  position: fixed;
+  text-align: center;
 }
 
 input:hover {
@@ -37,14 +44,15 @@ input:hover {
 
 .gamearea {
   margin: auto;
-  max-height: calc(100vh - 75px);
-  max-width: calc(100vh - 75px);
+  max-height: calc(60vh - 75px);
+  max-width: calc(60vh - 75px);
   }
 
 .gameboard {
   background-size: cover;
   display: flex;
   flex-wrap: wrap;
+  position: fixed;
 
   > .gamebox {
     align-items: center;
@@ -54,9 +62,8 @@ input:hover {
     color: white;
     text-shadow: 2px 2px rgba(0, 0, 0, .25);
     display: flex;
-    font-size: 12vh;
+    font-size: 3vh;
     justify-content: center;
-    min-height: calc(100% / 3);
 
     &:nth-child(3n) {
       border-right: 0;
@@ -86,4 +93,5 @@ input:hover {
 
 .container {
   justify-content: center;
+  margin:auto;
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const api = require('./api')
 const hideMessaging = function () {
   setTimeout(function () {
     $('#message').html('')

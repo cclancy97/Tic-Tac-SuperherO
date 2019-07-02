@@ -19,7 +19,6 @@ const onSignUp = event => {
   api.signUp(formData)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
-  ui.hideMessaging()
 }
 const onSignIn = event => {
   event.preventDefault()
@@ -28,7 +27,6 @@ const onSignIn = event => {
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  api.createGame()
 }
 const onSignOut = event => {
   event.preventDefault()
@@ -37,7 +35,6 @@ const onSignOut = event => {
   api.signOut(formData)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
-  ui.hideMessaging()
 }
 const onChangePassword = event => {
   event.preventDefault()
@@ -46,7 +43,6 @@ const onChangePassword = event => {
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
-  ui.hideMessaging()
 }
 const onCreateGame = event => {
   event.preventDefault()
@@ -54,12 +50,10 @@ const onCreateGame = event => {
     .then(ui.createGameSuccess, store.over = false)
     .catch(ui.createGameFailure)
   logic.resetBoard()
-  ui.hideMessaging()
 }
 const onUpdateGame = event => {
   event.preventDefault()
   logic.makeMove(event)
-  ui.hideMessaging()
 }
 module.exports = {
   onSignUp,
