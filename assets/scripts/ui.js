@@ -24,7 +24,10 @@ const failureMessage = message => {
 }
 const indexGamesSuccess = function (data) {
   successMessage('indexGamesSuccess!', data)
-  $('#games-display').html(data)
+  console.log(store.gameObj)
+  $('#games-display').text('Your ID is: ' +
+  store.gameObj.player_x.id)
+  // $('#games-display').html(store.gameObj)
 }
 const indexGamesFailure = function (data) {
   successMessage('indexGames Failure!', data)
