@@ -1,21 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-image: url('assets/styles/background.jpg');
+  background-image: url("assets/styles/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
-  font-family: 'Sigmar One', cursive;
   color: #ff4e4e;
   text-align: -webkit-center;
 
   > header {
+    font-family: 'Sigmar One', cursive;
     font-size: 6vw;
     height: 2vh;
-
   }
 }
 
+h2,
+input {
+  font-family: 'Nanum Gothic', sans-serif;
+}
 
 input:hover {
   background-color: rgba(#f90000,.29);
@@ -39,15 +42,16 @@ input:hover {
   color: green;
 }
 
-
 .grid-item:hover {
   background-color: #b35c99;
 }
+
 .grid-container {
   display: grid;
   grid-template: 150px 150px 150px / 150px 150px 150px;
   justify-content: center;
 }
+
 .grid-item {
   border: 3px solid #2c3e50;
   border-radius: 2px;
@@ -58,10 +62,15 @@ input:hover {
   justify-content: center;
   align-items: center;
 }
+
 .stats {
   display: grid;
   margin: auto;
   min-height: 8vh;
   position: fixed;
   justify-content: center;
+}
+
+#message {
+  font-family: 'Sigmar One', cursive;
 }
