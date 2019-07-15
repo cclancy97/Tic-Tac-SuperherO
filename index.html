@@ -18,14 +18,15 @@
         <h1>Tic-Tac-SuperherO</h1>
       </header>
       <br>
-      <span class='stats'>
+      <div class='stats'>
         <h3 id='game-over'></h3>
         <br>
         <h3 id='score'></h3>
-        <h3 id='message'></h3>
-      </span>
+      </div>
+      <h3 id='message'></h3>
       <aside id='games-display'></aside>
-
+<br>
+<main>
 <section>
   <form id='sign-up'>
     <h2>Sign Up</h2>
@@ -43,11 +44,11 @@
     <input name="credentials[password]" type="password" placeholder="password">
     <button class="btn btn-primary">Sign In</button>
   </form>
-<form id="sign-out">
   <br>
-  <button class="btn btn-primary">Sign out</button>
-</form>
 </section>
+<form id="sign-out">
+<button class="btn btn-primary">Sign out</button>
+</form>
 <section id="change-password">
 <form>
     <h2>Change Password</h2>
@@ -62,25 +63,21 @@
 <nav id='buttons'>
   <br>
   <button class="btn btn-primary" id="create-game">New Game</button>
-  <button class="btn btn-primary" id="index-games">Get All Games</button>
+  <button class="btn btn-primary" id="index-games">Total Games</button>
 </nav>
 <br>
-<main>
-  <div class="col-sm-8 container">
-    <div class="embed-responsive embed-responsive-1by1 gamearea">
-      <div class="embed-responsive-item gameboard">
-        <div data-id='0' class="col-4 gamebox"></div>
-        <div data-id='1' class="col-4 gamebox"></div>
-        <div data-id='2' class="col-4 gamebox"></div>
-        <div data-id='3' class="col-4 gamebox"></div>
-        <div data-id='4' class="col-4 gamebox"></div>
-        <div data-id='5' class="col-4 gamebox"></div>
-        <div data-id='6' class="col-4 gamebox"></div>
-        <div data-id='7' class="col-4 gamebox"></div>
-        <div data-id='8' class="col-4 gamebox"></div>
-      </div>
-    </div>
-  </div>
+    <div class="grid-container">
+  <div data-id='0' class="grid-item">0</div>
+  <div data-id='1' class="grid-item">1</div>
+  <div data-id='2' class="grid-item">2</div>
+  <div data-id='3' class="grid-item">3</div>
+  <div data-id='4' class="grid-item">4</div>
+  <div data-id='5' class="grid-item">5</div>
+  <div data-id='6' class="grid-item">6</div>
+  <div data-id='7' class="grid-item">7</div>
+  <div data-id='8' class="grid-item">8</div>
+</div>
+
 </main>
 
     </body>

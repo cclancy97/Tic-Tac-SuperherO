@@ -6,10 +6,13 @@ const ui = require('./ui')
 const store = require('./store')
 const logic = require('./game/logic')
 
-const onGetGames = function (event) {
-  api.indexGames()
-    .then(ui.indexGamesSuccess) // do something on success
-    .catch(ui.indexGamesFailure) // catch failures
+const onGetGames = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.indexGames(formData)
+    .then(ui.getGameSuccess)
+    .catch(ui.getGameFailure)
 }
 
 const onSignUp = event => {
@@ -47,7 +50,7 @@ const onChangePassword = event => {
 const onCreateGame = event => {
   event.preventDefault()
   api.createGame()
-    .then(ui.createGameSuccess, store.over = false)
+    .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
   logic.resetBoard()
 }

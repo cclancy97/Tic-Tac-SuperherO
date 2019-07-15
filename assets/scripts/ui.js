@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('./store')
-const api = require('./api')
 const hideMessaging = function () {
   setTimeout(function () {
     $('#message').html('')
@@ -22,17 +21,6 @@ const failureMessage = message => {
   // Clear getFormFields
   $('form').trigger('reset')
 }
-const indexGamesSuccess = function (data) {
-  successMessage('indexGamesSuccess!', data)
-  console.log(store.gameObj)
-  $('#games-display').text('Your ID is: ' +
-  store.gameObj.player_x.id)
-  // $('#games-display').html(store.gameObj)
-}
-const indexGamesFailure = function (data) {
-  successMessage('indexGames Failure!', data)
-}
-
 const signUpSuccess = responseData => {
   successMessage('You signed up successfully!')
 }
@@ -41,7 +29,7 @@ const signUpFailure = responseData => {
 }
 const signInSuccess = responseData => {
   successMessage('You signed in successfully!')
-  $('.container').show()
+  $('.grid-container').show()
   $('#change-password').show()
   $('#buttons').show()
   $('#sign-out').show()
@@ -55,6 +43,14 @@ const signInFailure = () => {
 }
 const signOutSuccess = responseData => {
   successMessage('You signed out successfully!')
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('.grid-container').hide()
+  $('#buttons').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
+  $('.stats').hide()
+  hideMessaging()
 }
 const signOutFailure = responseData => {
   failureMessage('Sign out failed!')
@@ -66,7 +62,8 @@ const changePasswordFailure = responseData => {
   failureMessage('Password not changed!')
 }
 const createGameSuccess = data => {
-  successMessage('New Game!')
+  successMessage('New Game! X is up!')
+  store.over = false
   store.currentPlayer = 'X'
   store.gameObj = data.game
   store.cells = store.gameObj.cells
@@ -81,6 +78,15 @@ const updateSuccess = (space, value) => {
 const updateFailure = data => {
   failureMessage('Invalid Move!', data)
 }
+
+const getGameSuccess = data => {
+  const game = data.games
+  $('#message').text(`You have played ${game.length} games`)
+}
+const getGameFailure = message => {
+  failureMessage('Games not retrieved')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -92,9 +98,9 @@ module.exports = {
   changePasswordFailure,
   createGameSuccess,
   createGameFailure,
-  indexGamesSuccess,
   updateSuccess,
   updateFailure,
   hideMessaging,
-  indexGamesFailure
+  getGameSuccess,
+  getGameFailure
 }

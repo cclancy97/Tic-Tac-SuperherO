@@ -7,7 +7,7 @@
 const events = require('./events')
 $(() => {
   // $( handler )
-  $('.container').hide()
+  $('.grid-container').hide()
   $('#buttons').hide()
   $('#sign-out').hide()
   $('#change-password').hide()
