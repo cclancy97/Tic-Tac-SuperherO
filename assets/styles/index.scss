@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-image: url("assets/styles/background.jpg");
+  background-image: url('./../public/images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
