@@ -29,7 +29,6 @@ const signUpFailure = responseData => {
 }
 const signInSuccess = responseData => {
   successMessage('You signed in successfully!')
-  $('.grid-container').show()
   $('#change-password').show()
   $('#buttons').show()
   $('#sign-out').show()
@@ -62,6 +61,7 @@ const changePasswordFailure = responseData => {
   failureMessage('Password not changed!')
 }
 const createGameSuccess = data => {
+  $('.grid-container').show()
   successMessage('New Game! X is up!')
   store.over = false
   store.currentPlayer = 'X'
