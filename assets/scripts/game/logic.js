@@ -21,7 +21,7 @@ const makeMove = (event) => {
         store.previousPlayer = 'O'
       }
       api.updateGame(id, store.previousPlayer)
-        .then(ui.updateSuccess(event.target, store.previousPlayer))
+        .then(ui.updateSuccess(event.target, store.previousPlayer), $('#message').addClass('success'))
         .catch(ui.updateFailure)
       store.cells[id] = store.previousPlayer
       checkWin()

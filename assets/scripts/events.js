@@ -3,7 +3,6 @@
 const api = require('./api')
 const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
-const store = require('./store')
 const logic = require('./game/logic')
 
 const onGetGames = event => {
